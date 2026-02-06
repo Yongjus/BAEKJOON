@@ -1,10 +1,11 @@
-def multiply(arr):
-    ans = 1
-    for n in arr:
-        if n == 0:
-            return 0
-        ans *= n
-    return ans
+import math
+# def multiply(arr):
+#     ans = 1
+#     for n in arr:
+#         if n == 0:
+#             return 0
+#         ans *= n
+#     return ans
 
 a, b = map(int, input().split())
 
@@ -20,6 +21,7 @@ while True:
             break
     else:
         gcd = multiply(lst_prime_factorization)
+        gcd = math.prod(lst_prime_factorization)
         print(int(gcd))
         print(int(gcd*a*b))
         break
