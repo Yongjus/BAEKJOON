@@ -1,0 +1,7 @@
+import sys
+
+S = sys.stdin.readline()
+
+# ASCII CODE: a(97), z(122)
+for i in range(97, 122+1):
+    print(S.find(chr(i)), end=" ")
