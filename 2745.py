@@ -9,10 +9,7 @@ N, B = sys.stdin.readline().split()
 B = int(B)
 
 res = 0
-if B > 10:
-    for i in range(len(N)-1, -1, -1):
-        res = res + mapping[N[-i-1]] * (B**i)
-    else:
-        print(res)
+for i in range(len(N)-1, -1, -1):
+    res = res + mapping[N[-i-1]] * (B**i)
 else:
-    print(int(N, B))
+    print(res)
