@@ -1,0 +1,18 @@
+import sys
+
+T = int(sys.stdin.readline())
+
+def gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return a
+
+def lcm(a, b):
+    return (a*b) // gcd(a, b)
+
+for i in range(T):
+    A, B = map(int, sys.stdin.readline().split())
+    if A < B:
+        A, B = B, A
+    
+    print(lcm(A, B))
