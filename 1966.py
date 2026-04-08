@@ -10,17 +10,14 @@ for _ in range(T):
         print(1)
     else:
         importance = deque(map(int, sys.stdin.readline().rstrip().split()))
-        res = 0
-        while M != -1:
-            max_num = max(importance)
-            p = importance.popleft()
-            if p == max_num:
-                M -= 1
-                res += 1
+        dq = deque([(p, i) for i, p in enumerate(importance)])
+        cnt = 0
+        while dq:
+            if dq[0][0] == max(dq, key=lambda x: x[0])[0]:
+                cnt += 1
+                p, idx = dq.popleft()
+                if idx == M:
+                    print(cnt)
+                    break
             else:
-                importance.append(p)
-                if M == 0:
-                    M = len(importance)-1
-                else:
-                    M -= 1
-        print(res)
+                dq.rotate(-1)
